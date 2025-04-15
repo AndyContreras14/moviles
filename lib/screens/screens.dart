@@ -1,0 +1,9 @@
+export 'package:app1/screens/alert_screen.dart';
+export 'package:app1/screens/biblioteca_screen.dart';
+export 'package:app1/screens/card_screen.dart';
+export 'package:app1/screens/foros_screen.dart';
+export 'package:app1/screens/home_screen.dart';
+export 'package:app1/screens/informacion_screen.dart';
+export 'package:app1/screens/pensum_screen.dart';
+export 'package:app1/screens/repositorios_screen.dart';
+export 'package:app1/screens/home_screen_prueba.dart';
