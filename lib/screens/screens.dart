@@ -7,3 +7,4 @@ export 'package:app1/screens/informacion_screen.dart';
 export 'package:app1/screens/pensum_screen.dart';
 export 'package:app1/screens/repositorios_screen.dart';
 export 'package:app1/screens/home_screen_prueba.dart';
+export 'package:app1/screens/nueva_card_screen.dart';

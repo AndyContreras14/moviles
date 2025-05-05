@@ -8,6 +8,7 @@ class HomeScreem extends StatelessWidget {
     'Pensum',
     'Repositorios',
     'Foros',
+    'Nueva Card',
   ];
 
   final List<String> imageList = [
@@ -18,14 +19,26 @@ class HomeScreem extends StatelessWidget {
     'assets/images/blueyhaloween.jpg',
   ];
 
+  // Mapa para asociar las opciones con las rutas nombradas
+  final Map<String, String> routeMap = {
+    'Noticias y Actualidad': 'alert',
+    'Biblioteca Central': 'biblioteca',
+    'Informaciones': 'informacion',
+    'Pensum': 'pensum',
+    'Repositorios': 'repositorios',
+    'Foros': 'foros',
+    'Nueva Card': 'nueva_card',
+  };
+
   HomeScreem({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Portal Ingenieria de Sistemas"),
+        title: const Text("Portal Ingeniería de Sistemas"),
         backgroundColor: Colors.greenAccent,
-        leading: Icon(Icons.airline_stops_outlined),
+        leading: const Icon(Icons.airline_stops_outlined),
       ),
       body: Column(
         children: [
@@ -41,21 +54,26 @@ class HomeScreem extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               itemBuilder: (context, index) {
+                final option = options[index];
                 return ListTile(
-                  title: Text(options[index]),
-                  leading: Icon(Icons.book),
-                  trailing: Icon(Icons.arrow_forward_ios),
+                  title: Text(option),
+                  leading: const Icon(Icons.book),
+                  trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Seleccionaste: ${options[index]}'),
-                        duration: Duration(seconds: 2),
-                      ),
-                    );
+                    final routeName = routeMap[option];
+                    if (routeName != null) {
+                      Navigator.pushNamed(context, routeName);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Ruta no encontrada para: $option'),
+                        ),
+                      );
+                    }
                   },
                 );
               },
-              separatorBuilder: (context, index) => Divider(),
+              separatorBuilder: (context, index) => const Divider(),
               itemCount: options.length,
             ),
           ),

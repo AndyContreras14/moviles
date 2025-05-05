@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:app1/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 //import 'package:app1/screens/screens.dart';
